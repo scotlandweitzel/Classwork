@@ -1,0 +1,50 @@
+Texas, TX, 28701845
+ Tennessee, TN, 6770010
+ South Dakota, SD, 882235
+ Oregon, OR, 4190713
+ Kansas, KS, 2911505
+ Alaska, AK, 737438
+ Utah, UT, 3161105
+ Georgia, GA, 10519475
+ Louisiana, LA, 4659978
+ Connecticut, CT, 3572665
+ Rhode Island, RI, 1057315
+ Michigan, MI, 9998915
+ Ohio, OH, 11689442
+ Virginia, VA, 8517685
+ California, CA, 39557045
+ West Virginia, WV, 1805832
+ Massachusetts, MA, 6902149
+ New York, NY, 19542209
+ Minnesota, MN, 5611179
+ Missouri, MO, 6126452
+ New Mexico, NM, 2095428
+ Maryland, MD, 6042718
+ Kentucky, KY, 4468402
+ Colorado, CO, 5695564
+ Indiana, IN, 6691878
+ Nevada, NV, 3034392
+ Florida, FL, 21299325
+ Hawaii, HI, 1420491
+ Pennsylvania, PA, 12807060
+ Maine, ME, 1338404
+ Washington, WA, 7535591
+ Wyoming, WY, 577737
+ Illinois, IL, 12741080
+ Idaho, ID, 1754208
+ Mississippi, MS, 2986530
+ Wisconsin, WI, 5813568
+ South Carolina, SC, 5084127
+ Arkansas, AR, 3013825
+ North Carolina, NC, 10383620
+ Montana, MT, 1062305
+ Nebraska, NE, 1929268
+ Alabama, AL, 4887871
+ New Jersey, NJ, 9032873
+ North Dakota, ND, 760077
+ Delaware, DE, 967171
+ Iowa, IA, 3156145
+ Oklahoma, OK, 3943079
+ New Hampshire, NH, 1356458
+ Vermont, VT, 626299
+ Arizona, AZ, 7171646
