@@ -1,0 +1,176 @@
+module alu(input logic [7:0] opcode, 
+           input logic signed [7:0] value, MDR, AC,
+           output logic NFLG, ZFLG,
+			  output logic signed [7:0] Z);
+	
+	always_comb
+		begin
+		
+		case (opcode)
+			
+			// NO OP
+			8'h00: begin
+			       Z = 8'hFF;
+					 NFLG = 0;
+					 ZFLG = 0;
+			       end
+			// LOAD address
+			8'h01: begin
+					 Z = MDR;
+					 NFLG = 0;
+					 ZFLG = 0;
+			       end
+			// LOADI value
+			8'h02: begin
+			       Z = value;
+					 NFLG = 0;
+					 ZFLG = 0;
+			       end
+         // STORE address			
+			8'h03: begin
+			       Z = 8'hFF;
+			       NFLG = 1;
+					 ZFLG = 0;
+                end
+		   // CLR
+			8'h04: begin
+		      	 Z = 0;
+					 NFLG = 0;
+					 ZFLG = 0;
+                end
+         // ADD address					 
+			8'h05: begin
+			       Z = AC + MDR;
+                NFLG = 0;
+					 ZFLG = 0;
+                end
+		   // ADDI value			 
+			8'h06: begin
+			       Z = AC + value;
+                NFLG = 0;
+					 ZFLG = 0;
+                end
+	      // SUBT address				 
+			8'h07: begin
+			       Z = AC - MDR;
+                NFLG = 0;
+					 ZFLG = 0;
+                end
+	      // SUBTI address				 
+			8'h08: begin
+			       Z = AC - value;
+					 NFLG = 0;
+					 ZFLG = 0;
+                end
+	      // NEG address
+			8'h09: begin
+			       Z = 0 - MDR;
+					 NFLG = 0;
+					 ZFLG = 0;
+                end
+			// NOT address
+			8'h0A: begin
+			       Z = ~MDR;
+                NFLG = 0;
+					 ZFLG = 0;
+                end
+		   // AND address
+			8'h0B: begin
+			       Z = AC & MDR;
+                NFLG = 0;
+					 ZFLG = 0;
+                end
+		   // OR address
+			8'h0C: begin
+			       Z = AC | MDR;
+                NFLG = 0;
+					 ZFLG = 0;
+	             end
+			// XOR address 
+			8'h0D: begin
+			       Z = AC ^ MDR;
+					 NFLG = 0;
+					 ZFLG = 0;
+	             end
+			// SHL value
+			8'h0E: begin
+			       Z = AC <<< value;
+					 NFLG = 0;
+					 ZFLG = 0;
+	             end
+			// SHR value
+			8'h0F: begin
+			       Z = AC >>> value;
+					 NFLG = 0;
+					 ZFLG = 0;
+	             end
+		   // JUMP address
+			8'h10: begin
+			       Z = 8'hFF;
+					 NFLG = 0;
+			       ZFLG = 1;
+					 end
+			// JNEG address
+			8'h11: if(AC < 0)
+			           begin
+			           Z = 8'hFF;
+						  NFLG = 0;
+					     ZFLG = 1;
+						  end
+					 else
+					     begin
+			           Z = 8'hFF;
+						  NFLG = 0;
+					     ZFLG = 0;
+						  end
+			// JPOSZ address
+			8'h12: if(AC >= 0)
+			           begin
+			           Z = 8'hFF;
+						  NFLG = 0;
+					     ZFLG = 1;
+						  end
+					 else
+					     begin
+			           Z = 8'hFF;
+						  NFLG = 0;
+					     ZFLG = 0;
+						  end
+			// JZERO address
+			8'h13: if(AC == 0)
+			           begin
+			           Z = 8'hFF;
+						  NFLG = 0;
+					     ZFLG = 1;
+						  end
+					 else
+					     begin
+			           Z = 8'hFF;
+						  NFLG = 0;
+					     ZFLG = 0;
+						  end
+			// JNZER address
+			8'h14: if(AC != 0)
+			           begin
+			           Z = 8'hFF;
+						  NFLG = 0;
+					     ZFLG = 1;
+						  end
+					 else
+					     begin
+			           Z = 8'hFF;
+						  NFLG = 0;
+					     ZFLG = 0;
+						  end
+			
+			// LOAD FF on Z if opcode is not valid
+			default: begin
+			         Z = 8'hFF;
+						NFLG = 0;
+					   ZFLG = 0;
+						end
+		endcase
+		end
+
+				
+endmodule

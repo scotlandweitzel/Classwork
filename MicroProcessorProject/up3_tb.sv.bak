@@ -1,0 +1,32 @@
+module up3_tb(input logic [3:0] KEY, output logic [9:0] LEDR,
+              output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
+				  
+	logic[7:0] AC, MDR, PC, opcode, value, address, data0, data1, data2;
+	logic[2:0] STATE;
+	logic LOAD_AC, LOAD_IRU, LOAD_IRL, LOAD_PC, INCR_PC, STORE_MEM, FETCH;
+	
+	always_comb
+		if(KEY[3])
+			begin
+			data2 = PC;
+			data1 = ADDR;
+			data0 = MDR;
+			LEDR[0] = STORE_MEM;
+			LEDR[1] = FETCH;
+			LEDR[2] = INCR_PC;
+			LEDR[3] = LOAD_PC;
+			LEDR[4] = LOAD_IRL;
+			LEDR[5] = LOAD_IRU;
+			LEDR[6] = LOAD_AC;
+			LEDR[7] = 0;
+			LEDR[8] = 0;
+			LEDR[9] = KEY[3];
+			end
+			
+		else
+			begin
+			end
+			
+	dualseg disp2(~KEY[2], ~KEY[2], data2, HEX4, HEX5);
+	dualseg disp1(~KEY[2], ~KEY[2], data1, HEX2, HEX3);
+	dualseg disp0(~KEY[2], ~KEY[2], data0, HEX0, HEX1);
